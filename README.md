@@ -1,6 +1,7 @@
-# DigitalTwin - Data Space Management
+# DigitalTwin - Data Space
 
-**DigitalTwin** is a Python package for creating, managing, and querying data spaces, with a focus on modular data
+**DigitalTwin Data Sapce** is a Python package for creating, managing, and querying data spaces, with a focus on modular
+data
 pipelines and digital twin applications. It provides a flexible framework to define, schedule, and run data collectors,
 harvesters, and handlers, supporting complex data workflows and dependencies.
 
@@ -19,14 +20,14 @@ harvesters, and handlers, supporting complex data workflows and dependencies.
 ## Installation
 
 ```bash
-pip install digitaltwin
+pip install digitaltwin_dataspace
 ```
 
 Or, for development:
 
 ```bash
-git clone https://github.com/GaspardMerten/digitaltwin.git
-cd digitaltwin
+git clone https://github.com/GaspardMerten/digitaltwin_dataspace.git
+cd digitaltwin_dataspace
 pip install -e .
 ```
 
@@ -47,10 +48,10 @@ pip install -e .
 
 ### Command Line Interface
 
-The main entry point is the `digitaltwin` CLI:
+The main entry point is the `dt-dataspace` CLI:
 
 ```bash
-digitaltwin --config-folder path/to/config [options]
+dt-dataspace --config-folder path/to/config [options]
 ```
 
 **Key options:**
@@ -72,7 +73,7 @@ digitaltwin --config-folder path/to/config [options]
 ## Project Structure
 
 ```
-digitaltwin/
+digitaltwin_dataspace/
 │
 ├── components/
 │   ├── collector.py   # Base Collector class
@@ -120,7 +121,7 @@ Each file can define multiple collectors, harvesters, and handlers, specifying:
 - `SOURCE`, `DEPENDENCIES` (for workflow chaining)
 - Other custom parameters
 
-See `digitaltwin/configuration/load.py` for all supported options.
+See `digitaltwin_dataspace/configuration/load.py` for all supported options.
 
 ---
 
@@ -139,7 +140,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 ## Links
 
-- [Homepage](https://github.com/GaspardMerten/digitaltwin)
-- [Bug Tracker](https://github.com/GaspardMerten/digitaltwin/issues)
+- [Homepage](https://github.com/GaspardMerten/digitaltwin_dataspace)
+- [Bug Tracker](https://github.com/GaspardMerten/digitaltwin_dataspace/issues)
 
 --- 

@@ -3,9 +3,9 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "digitaltwin"
-version = "0.0.2"
-description = "DigitalTwin is a Python package that provides a simple and efficient way to create, manage, and query data spaces."
+name = "digitaltwin_dataspace"
+version = "0.0.1"
+description = "DigitalTwin - Dataspace is a Python package that provides a simple and efficient way to create, manage, and query data spaces."
 readme = "README.md"
 authors = [
     { name = "Gaspard Merten", email = "gaspard@norse.be" },
@@ -35,4 +35,4 @@ dependencies = [
 include-package-data = true
 
 [project.scripts]
-digitaltwin = "digitaltwin.cli:main"
+dt-dataspace = "digitaltwin_dataspace.cli:main"
