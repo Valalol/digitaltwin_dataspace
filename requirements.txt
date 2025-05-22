@@ -1,0 +1,6 @@
+# Core
+requests
+SQLAlchemy
+azure-storage-blob
+schedule
+dotenv

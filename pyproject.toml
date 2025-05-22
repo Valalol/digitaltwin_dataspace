@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digitaltwin"
+version = "0.0.2"
+description = "DigitalTwin is a Python package that provides a simple and efficient way to create, manage, and query data spaces."
+readme = "README.md"
+authors = [
+    { name = "Gaspard Merten", email = "gaspard@norse.be" },
+]
+license = "CC-BY-NC-SA-4.0"
+license-files = ["LICENSE.MD"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "requests",
+    "SQLAlchemy",
+    "azure-storage-blob",
+    "schedule",
+    "dotenv",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/GaspardMerten/digitaltwin"
+"Bug Tracker" = "https://github.com/GaspardMerten/digitaltwin/issues"
+
+
+[tool.setuptools]
+include-package-data = true
+
+[project.scripts]
+digitaltwin = "digitaltwin.cli:main"
