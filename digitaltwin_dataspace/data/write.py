@@ -3,18 +3,19 @@ import json
 from datetime import datetime
 
 from sqlalchemy import Table
-from ..configuration.model import ComponentConfiguration
+
 from .engine import engine
 from .storage import storage_manager
 
 
 def write_result(
-    configuration: ComponentConfiguration, table: Table, data, date: datetime
+        name: str, content_type: str, table: Table, data, date: datetime
 ):
     """
     Write the result of a harvester to the database.
     If the data already exists, it will be overwritten.
-    :param configuration: The configuration of the component
+    :param name:  The name of the folder to write to in the storage
+    :param content_type:  The content type of the data (e.g., "text", "json", etc.)
     :param table:  The table to write to
     :param data:  The data to write
     :param date:  The date of the data
@@ -36,13 +37,13 @@ def write_result(
 
         # Upload data to storage
         url = storage_manager.write(
-            f"{configuration.name}/{date.strftime('%Y-%m-%d_%H-%M-%S')}",
+            f"{name}/{date.strftime('%Y-%m-%d_%H-%M-%S')}",
             data_bytes,
         )
         # Insert data to database
         connection.execute(
             table.insert().values(
-                date=date, data=url, hash=md5_digest, type=configuration.data_type
+                date=date, data=url, hash=md5_digest, type=content_type
             )
         )
 

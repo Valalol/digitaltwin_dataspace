@@ -1,19 +1,10 @@
 import abc
-from typing import Type, Dict
+from typing import Type
 
-from sqlalchemy import Table
-
-
-class Handler(abc.ABC):
-    def __init__(self, tables: Dict[str, Table]):
-        self._tables = tables
-
-    def get_table_by_name(self, name: str) -> Table:
-        return self._tables[name]
-
-    @abc.abstractmethod
-    def run(self, **kwargs):
-        pass
+from .base import Component,Servable
 
 
-HandlerClass = Type[Handler]
+class Handler(Component, Servable, abc.ABC):
+    pass
+
+

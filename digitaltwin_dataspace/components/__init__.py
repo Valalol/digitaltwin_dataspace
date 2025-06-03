@@ -1,7 +1,4 @@
-from typing import Union
-
-from .collector import Collector, CollectorClass
-from .handler import Handler, HandlerClass
-from .harvester import Harvester, HarvesterClass
-
-ComponentClass = Union[CollectorClass, HandlerClass, HarvesterClass]
+from .base import *
+from .collector import Collector
+from .handler import Handler
+from .harvester import Harvester, HarvesterConfiguration

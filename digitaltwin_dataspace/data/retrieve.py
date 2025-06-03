@@ -16,18 +16,11 @@ class Data:
     date: datetime
     hash: str
     _url: str
-    _data_type: str = None
+    content_type: str = None
 
     @property
-    def data(self) -> Union[str, bytes]:
-        bytes_data = storage_manager.read(self._url)
-
-        if self._data_type == "json":
-            return json.loads(bytes_data)
-        elif self._data_type == "text":
-            return bytes_data.decode("utf-8")
-
-        return bytes_data
+    def data(self) -> bytes:
+        return storage_manager.read(self._url)
 
 
 def data_result(func) -> Optional[Union[Data, List[Data]]]:
@@ -39,10 +32,10 @@ def data_result(func) -> Optional[Union[Data, List[Data]]]:
 
         # If the result is a single row, return a single Data object
         if not isinstance(result, list):
-            return Data(date=result.date, _url=result.data)
+            return Data(date=result.date, _url=result.data, content_type=result.type, hash=result.hash)
 
         return [
-            Data(date=row.date, _url=row.data, _data_type=row.type, hash=row.hash)
+            Data(date=row.date, _url=row.data, content_type=row.type, hash=row.hash)
             for row in result
         ]
 
